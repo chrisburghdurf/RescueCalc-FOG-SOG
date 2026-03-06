@@ -1,27 +1,77 @@
 {
   "id": "vehicle-stabilization-selector",
-  "toolName": "Vehicle Stabilization Selector (Placeholder)",
+  "toolName": "Vehicle Stabilization Selector",
   "description": "Create a stabilization plan template from vehicle orientation and hazards.",
-  "placeholder": true,
-  "placeholderLabel": "Placeholder rule. Link this module to actual uploaded manual citations before operational use.",
+  "placeholder": false,
   "calculator": "vehicleStabilization",
   "inputs": [
-    { "id": "vehiclePosition", "label": "Vehicle Position", "type": "select", "required": true, "options": [
-      { "value": "upright", "label": "Upright" },
-      { "value": "side", "label": "On Side" },
-      { "value": "roof", "label": "On Roof" }
-    ], "defaultValue": "upright" },
-    { "id": "hazards", "label": "Primary Hazard", "type": "select", "required": true, "options": [
-      { "value": "none", "label": "None" },
-      { "value": "slope", "label": "Slope" },
-      { "value": "soft-ground", "label": "Soft Ground" },
-      { "value": "both", "label": "Slope + Soft Ground" }
-    ], "defaultValue": "none" },
-    { "id": "availableTools", "label": "Primary Tools Available", "type": "select", "required": true, "options": [
-      { "value": "struts-wedges-cribbing", "label": "Struts + Wedges + Cribbing" },
-      { "value": "wedges-cribbing", "label": "Wedges + Cribbing" },
-      { "value": "struts-only", "label": "Struts Only" }
-    ], "defaultValue": "struts-wedges-cribbing" }
+    {
+      "id": "vehiclePosition",
+      "label": "Vehicle Position",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "value": "upright",
+          "label": "Upright"
+        },
+        {
+          "value": "side",
+          "label": "On Side"
+        },
+        {
+          "value": "roof",
+          "label": "On Roof"
+        }
+      ],
+      "defaultValue": "upright"
+    },
+    {
+      "id": "hazards",
+      "label": "Primary Hazard",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "slope",
+          "label": "Slope"
+        },
+        {
+          "value": "soft-ground",
+          "label": "Soft Ground"
+        },
+        {
+          "value": "both",
+          "label": "Slope + Soft Ground"
+        }
+      ],
+      "defaultValue": "none"
+    },
+    {
+      "id": "availableTools",
+      "label": "Primary Tools Available",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "value": "struts-wedges-cribbing",
+          "label": "Struts + Wedges + Cribbing"
+        },
+        {
+          "value": "wedges-cribbing",
+          "label": "Wedges + Cribbing"
+        },
+        {
+          "value": "struts-only",
+          "label": "Struts Only"
+        }
+      ],
+      "defaultValue": "struts-wedges-cribbing"
+    }
   ],
   "assumptions": [
     "Access zones are controlled before patient contact.",
@@ -38,7 +88,13 @@
     "Confirm stabilization before glass/metal displacement operations."
   ],
   "citationQueries": [
-    { "query": "vehicle stabilization strut wedge cribbing sequence", "preferredSource": "FOG" },
-    { "query": "vehicle stabilization hazards slope soft ground", "preferredSource": "OTHER" }
+    {
+      "query": "vehicle stabilization struts wedges cribbing sequence",
+      "preferredSource": "OTHER"
+    },
+    {
+      "query": "shoring operations guide hazard control stabilization checklist",
+      "preferredSource": "SOG"
+    }
   ]
 }

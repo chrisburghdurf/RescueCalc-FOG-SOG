@@ -1,0 +1,61 @@
+[
+  {
+    "fileName": "2015-US-Army-Corps-Shoring-Operation-Guide-SOG.pdf",
+    "pageCount": 218,
+    "titleGuess": "U.S. Army Corps of Engineers Urban Search and Rescue Program Urban Search & Rescue SHORING OPERATIONS GUIDE 4th Edition July 2015",
+    "sampleText": [
+      {
+        "page": 1,
+        "excerpt": "U.S. Army Corps of Engineers Urban Search and Rescue Program Urban Search & Rescue SHORING OPERATIONS GUIDE 4th Edition July 2015"
+      },
+      {
+        "page": 2,
+        "excerpt": "US&R SHORING OPERATIONS GUIDE (SOG) FOREWORD This Shoring Operations Guide (SOG) was developed by the FEMA US&R Structures Sub-group, in cooperation with U.S. Army Corps of Engineers, US&R Program Office, as a working reference tool for US&R Rescue Team Personnel during response operations. It condenses information provided during the initial train"
+      },
+      {
+        "page": 3,
+        "excerpt": "US&R SHORING OPERATIONS GUIDE TABLE OF CONTENTS The following Sections are contained in this SOG. Each Section has an Outline that gives the order in which subjects are presented. NO. CONTENTS of SECTION 1 Hazard I.D. and Failure Modes by Building Type US&R Field Communication Procedures FEMA US&R Marking System FEMA US&R Shoring Symbols Design Loa"
+      }
+    ]
+  },
+  {
+    "fileName": "CMC-Rope-Rescue-Field-Guide-4th-Edition.pdf",
+    "pageCount": 140,
+    "titleGuess": "CMC-Rope-Rescue-Field-Guide-4th-Edition.pdf",
+    "sampleText": []
+  },
+  {
+    "fileName": "MUSAR-SOG-2020.pdf",
+    "pageCount": 19,
+    "titleGuess": "1 MUSAR Training Foundation TRENCH RESCUE SHORING OPERATIONS GUIDE Trench Rescue Operations Level 2 nd Edition- September 2020 2 nd Printing",
+    "sampleText": [
+      {
+        "page": 1,
+        "excerpt": "1 MUSAR Training Foundation TRENCH RESCUE SHORING OPERATIONS GUIDE Trench Rescue Operations Level 2 nd Edition- September 2020 2 nd Printing"
+      },
+      {
+        "page": 2,
+        "excerpt": "2 SHORING NOTES These shoring systems contained herein provide a minimum factor of safety of 2 to 1. These rescue shoring systems and charts are conditional upon the following soil and shoring system conditions: 1. Water level that is below the bottom of the trench 2. The bottom of the excavation is not “boiling” 3. The soil is not oversaturated an"
+      },
+      {
+        "page": 3,
+        "excerpt": "3 ESTIMATING LATERAL SOIL FORCES LATERAL FORCE- For rescue situations (trench collapse) with trench walls that can be shored with panels and struts an accurate estimation of the lateral force on the shoring by using the following (T-L) method. ESTIMATING LATERAL EARTH PRESSURE: The maximum lateral force on a 4ft x 4ft section of a shoring panel is "
+      }
+    ]
+  },
+  {
+    "fileName": "st-120108-final-shoring-guidebook.pdf",
+    "pageCount": 190,
+    "titleGuess": "Field Guide for Building Stabilization and Shoring Techniques BIPS 08 / October 2011 ©2004 Harris County Flood Control District. Reproduced ",
+    "sampleText": [
+      {
+        "page": 1,
+        "excerpt": "Field Guide for Building Stabilization and Shoring Techniques BIPS 08 / October 2011 ©2004 Harris County Flood Control District. Reproduced with permission."
+      },
+      {
+        "page": 3,
+        "excerpt": "Field Guide for Building Stabilization and Shoring Techniques BIPS 08 / October 2011"
+      }
+    ]
+  }
+]

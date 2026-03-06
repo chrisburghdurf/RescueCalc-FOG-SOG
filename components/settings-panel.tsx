@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { DocumentManager } from "@/components/document-manager";
 import { getSettings, saveSettings } from "@/lib/db";
 import type { UnitSystem } from "@/lib/types";
+import seedProfiles from "@/data/seed_doc_profiles.json";
 
 export function SettingsPanel() {
   const [unitSystem, setUnitSystem] = useState<UnitSystem>("imperial");
@@ -59,6 +60,22 @@ export function SettingsPanel() {
         </button>
 
         {status ? <p className="mt-2 text-xs text-slate-700">{status}</p> : null}
+      </section>
+
+      <section className="panel p-4">
+        <h2 className="text-lg font-semibold text-slate-900">Seed Document Profiles</h2>
+        <p className="mt-1 text-sm text-slate-700">
+          Extracted from your uploaded manuals in this workspace; used to tune module citation retrieval.
+        </p>
+        <div className="mt-3 grid gap-2">
+          {(seedProfiles as Array<{ fileName: string; pageCount: number; titleGuess: string }>).map((doc) => (
+            <article key={doc.fileName} className="rounded-lg border border-slate-300 bg-white p-3">
+              <p className="text-sm font-semibold text-slate-900">{doc.fileName}</p>
+              <p className="text-xs text-slate-600">{doc.pageCount} pages</p>
+              <p className="mt-1 text-xs text-slate-700">{doc.titleGuess}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <DocumentManager />

@@ -1,15 +1,50 @@
 {
   "id": "cribbing-height-planner",
-  "toolName": "Cribbing Height Planner (Placeholder)",
+  "toolName": "Cribbing Height Planner",
   "description": "Estimate layer count and build reminders for crib stacks.",
-  "placeholder": true,
-  "placeholderLabel": "Placeholder rule. Link this module to actual uploaded manual citations before operational use.",
+  "placeholder": false,
   "calculator": "cribbingHeight",
   "inputs": [
-    { "id": "cribbingThicknessIn", "label": "Cribbing Thickness Actual (in)", "type": "number", "required": true, "min": 2, "max": 12, "step": 0.5, "defaultValue": 4 },
-    { "id": "desiredHeightIn", "label": "Desired Height (in)", "type": "number", "required": true, "min": 1, "max": 96, "step": 0.5, "defaultValue": 24 },
-    { "id": "baseFootprintFt", "label": "Base Footprint (ft)", "type": "number", "required": true, "min": 1, "max": 12, "step": 0.5, "defaultValue": 4 },
-    { "id": "stackCount", "label": "Number of Stacks", "type": "number", "required": true, "min": 1, "max": 12, "step": 1, "defaultValue": 2 }
+    {
+      "id": "cribbingThicknessIn",
+      "label": "Cribbing Thickness Actual (in)",
+      "type": "number",
+      "required": true,
+      "min": 2,
+      "max": 12,
+      "step": 0.5,
+      "defaultValue": 4
+    },
+    {
+      "id": "desiredHeightIn",
+      "label": "Desired Height (in)",
+      "type": "number",
+      "required": true,
+      "min": 1,
+      "max": 96,
+      "step": 0.5,
+      "defaultValue": 24
+    },
+    {
+      "id": "baseFootprintFt",
+      "label": "Base Footprint (ft)",
+      "type": "number",
+      "required": true,
+      "min": 1,
+      "max": 12,
+      "step": 0.5,
+      "defaultValue": 4
+    },
+    {
+      "id": "stackCount",
+      "label": "Number of Stacks",
+      "type": "number",
+      "required": true,
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "defaultValue": 2
+    }
   ],
   "assumptions": [
     "Stack loading is shared evenly.",
@@ -26,7 +61,13 @@
     "Pause and inspect stack plumb/alignment before loading increases."
   ],
   "citationQueries": [
-    { "query": "cribbing lumber dimensions and stacking guidance", "preferredSource": "SOG" },
-    { "query": "cribbing safety and height limits", "preferredSource": "FOG" }
+    {
+      "query": "shoring operations guide cribbing lumber dimensions and stack stability",
+      "preferredSource": "SOG"
+    },
+    {
+      "query": "field guide building stabilization shoring cribbing patterns",
+      "preferredSource": "OTHER"
+    }
   ]
 }

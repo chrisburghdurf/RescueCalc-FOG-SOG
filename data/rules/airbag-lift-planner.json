@@ -1,16 +1,60 @@
 {
   "id": "airbag-lift-planner",
-  "toolName": "Airbag Lift Planner (Placeholder)",
+  "toolName": "Airbag Lift Planner",
   "description": "Generate staged lift/capture checklist and cribbing progression.",
-  "placeholder": true,
-  "placeholderLabel": "Placeholder rule. Link this module to actual uploaded manual citations before operational use.",
+  "placeholder": false,
   "calculator": "airbagLift",
   "inputs": [
-    { "id": "targetLiftHeightIn", "label": "Target Lift Height (in)", "type": "number", "required": true, "min": 1, "max": 72, "step": 0.5, "defaultValue": 12 },
-    { "id": "liftPoints", "label": "Lift Points", "type": "number", "required": true, "min": 1, "max": 12, "step": 1, "defaultValue": 2 },
-    { "id": "captureIntervalIn", "label": "Capture Interval (in)", "type": "number", "required": true, "min": 0.5, "max": 8, "step": 0.5, "defaultValue": 1 },
-    { "id": "cribbingMaterialSizeIn", "label": "Cribbing Material Size (in)", "type": "number", "required": true, "min": 2, "max": 12, "step": 0.5, "defaultValue": 4 },
-    { "id": "startingClearanceIn", "label": "Starting Clearance (in)", "type": "number", "required": true, "min": 0, "max": 48, "step": 0.5, "defaultValue": 2 }
+    {
+      "id": "targetLiftHeightIn",
+      "label": "Target Lift Height (in)",
+      "type": "number",
+      "required": true,
+      "min": 1,
+      "max": 72,
+      "step": 0.5,
+      "defaultValue": 12
+    },
+    {
+      "id": "liftPoints",
+      "label": "Lift Points",
+      "type": "number",
+      "required": true,
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "defaultValue": 2
+    },
+    {
+      "id": "captureIntervalIn",
+      "label": "Capture Interval (in)",
+      "type": "number",
+      "required": true,
+      "min": 0.5,
+      "max": 8,
+      "step": 0.5,
+      "defaultValue": 1
+    },
+    {
+      "id": "cribbingMaterialSizeIn",
+      "label": "Cribbing Material Size (in)",
+      "type": "number",
+      "required": true,
+      "min": 2,
+      "max": 12,
+      "step": 0.5,
+      "defaultValue": 4
+    },
+    {
+      "id": "startingClearanceIn",
+      "label": "Starting Clearance (in)",
+      "type": "number",
+      "required": true,
+      "min": 0,
+      "max": 48,
+      "step": 0.5,
+      "defaultValue": 2
+    }
   ],
   "assumptions": [
     "Load movement is controlled and captured at each stage.",
@@ -28,7 +72,17 @@
     "Reassess hazards and stabilization before each next stage."
   ],
   "citationQueries": [
-    { "query": "air bag lifting capture interval cribbing", "preferredSource": "FOG" },
-    { "query": "lift progression and load capture", "preferredSource": "SOG" }
+    {
+      "query": "air lifting bag operations and cribbing capture intervals",
+      "preferredSource": "FOG"
+    },
+    {
+      "query": "shoring operations guide cribbing and lift progression",
+      "preferredSource": "SOG"
+    },
+    {
+      "query": "MUSAR trench rescue shoring operations guide capture and stabilization",
+      "preferredSource": "SOG"
+    }
   ]
 }
