@@ -41,6 +41,7 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
   }, [rule]);
 
   const [values, setValues] = useState<Record<string, string>>({});
+  const [feetInchInputs, setFeetInchInputs] = useState<Record<string, { feet: string; inches: string }>>({});
   const [result, setResult] = useState<RuleExecutionResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [linkQuery, setLinkQuery] = useState("");
@@ -107,6 +108,17 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
     : "";
 
   const resolvedValue = (fieldId: string) => values[fieldId] ?? defaultValues[fieldId] ?? "";
+  const resolvedFeetInch = (fieldId: string) => {
+    const existing = feetInchInputs[fieldId];
+    if (existing) {
+      return existing;
+    }
+    const split = splitFeetValue(String(resolvedValue(fieldId)));
+    return {
+      feet: String(split.feet),
+      inches: String(split.inches),
+    };
+  };
 
   return (
     <section className="panel p-4">
@@ -199,11 +211,16 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
                       <input
                         className="field-input"
                         inputMode="decimal"
-                        value={splitFeetValue(String(resolvedValue(field.id))).feet}
+                        value={resolvedFeetInch(field.id).feet}
                         onChange={(e) => {
-                          const current = splitFeetValue(String(resolvedValue(field.id)));
+                          const pair = resolvedFeetInch(field.id);
                           const feet = Number(e.target.value || 0);
-                          const total = feet + current.inches / 12;
+                          const inches = Number(pair.inches || 0);
+                          const total = feet + inches / 12;
+                          setFeetInchInputs((prev) => ({
+                            ...prev,
+                            [field.id]: { feet: e.target.value, inches: pair.inches },
+                          }));
                           setValues((prev) => ({ ...prev, [field.id]: String(total) }));
                         }}
                         step={1}
@@ -214,11 +231,16 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
                       <input
                         className="field-input"
                         inputMode="decimal"
-                        value={splitFeetValue(String(resolvedValue(field.id))).inches}
+                        value={resolvedFeetInch(field.id).inches}
                         onChange={(e) => {
-                          const current = splitFeetValue(String(resolvedValue(field.id)));
+                          const pair = resolvedFeetInch(field.id);
+                          const feet = Number(pair.feet || 0);
                           const inches = Number(e.target.value || 0);
-                          const total = current.feet + inches / 12;
+                          const total = feet + inches / 12;
+                          setFeetInchInputs((prev) => ({
+                            ...prev,
+                            [field.id]: { feet: pair.feet, inches: e.target.value },
+                          }));
                           setValues((prev) => ({ ...prev, [field.id]: String(total) }));
                         }}
                         step={0.25}
