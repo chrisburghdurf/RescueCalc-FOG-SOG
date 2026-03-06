@@ -3,7 +3,7 @@ import type { PageText } from "@/lib/types";
 export async function parsePdfToPages(file: File, docId: string): Promise<PageText[]> {
   const buffer = await file.arrayBuffer();
   const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  const loadingTask = pdfjs.getDocument({ data: buffer, disableWorker: true });
+  const loadingTask = pdfjs.getDocument({ data: buffer });
   const pdf = await loadingTask.promise;
 
   const pages: PageText[] = [];
