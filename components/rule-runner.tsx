@@ -15,6 +15,20 @@ function formatLabel(inputId: string) {
   return inputId.replaceAll("_", " ");
 }
 
+function isFeetField(fieldId: string, label: string) {
+  return fieldId.endsWith("Ft") || /\(ft\)/i.test(label);
+}
+
+function splitFeetValue(value: string) {
+  const totalFeet = Number(value);
+  if (!Number.isFinite(totalFeet)) {
+    return { feet: 0, inches: 0 };
+  }
+  const feet = Math.trunc(totalFeet);
+  const inches = (totalFeet - feet) * 12;
+  return { feet, inches: Number(inches.toFixed(2)) };
+}
+
 export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compact?: boolean }) {
   const rule = useMemo(() => getAllRules().find((entry) => entry.id === ruleId), [ruleId]);
   const defaultValues = useMemo(() => {
@@ -92,6 +106,8 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
       ].join("\n")
     : "";
 
+  const resolvedValue = (fieldId: string) => values[fieldId] ?? defaultValues[fieldId] ?? "";
+
   return (
     <section className="panel p-4">
       {!compact ? <h2 className="text-lg font-semibold text-slate-900">{rule.toolName}</h2> : null}
@@ -165,7 +181,7 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
             {field.type === "select" ? (
               <select
                 className="field-input"
-                value={values[field.id] ?? defaultValues[field.id] ?? ""}
+                value={resolvedValue(field.id)}
                 onChange={(e) => setValues((current) => ({ ...current, [field.id]: e.target.value }))}
               >
                 {field.options?.map((option) => (
@@ -175,15 +191,52 @@ export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compac
                 ))}
               </select>
             ) : (
-              <input
-                className="field-input"
-                inputMode="decimal"
-                value={values[field.id] ?? defaultValues[field.id] ?? ""}
-                onChange={(e) => setValues((current) => ({ ...current, [field.id]: e.target.value }))}
-                min={field.min}
-                max={field.max}
-                step={field.step ?? 1}
-              />
+              <>
+                {isFeetField(field.id, field.label) ? (
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="grid gap-1 text-xs text-slate-600">
+                      <span>Feet</span>
+                      <input
+                        className="field-input"
+                        inputMode="decimal"
+                        value={splitFeetValue(String(resolvedValue(field.id))).feet}
+                        onChange={(e) => {
+                          const current = splitFeetValue(String(resolvedValue(field.id)));
+                          const feet = Number(e.target.value || 0);
+                          const total = feet + current.inches / 12;
+                          setValues((prev) => ({ ...prev, [field.id]: String(total) }));
+                        }}
+                        step={1}
+                      />
+                    </div>
+                    <div className="grid gap-1 text-xs text-slate-600">
+                      <span>Inches</span>
+                      <input
+                        className="field-input"
+                        inputMode="decimal"
+                        value={splitFeetValue(String(resolvedValue(field.id))).inches}
+                        onChange={(e) => {
+                          const current = splitFeetValue(String(resolvedValue(field.id)));
+                          const inches = Number(e.target.value || 0);
+                          const total = current.feet + inches / 12;
+                          setValues((prev) => ({ ...prev, [field.id]: String(total) }));
+                        }}
+                        step={0.25}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <input
+                    className="field-input"
+                    inputMode="decimal"
+                    value={resolvedValue(field.id)}
+                    onChange={(e) => setValues((current) => ({ ...current, [field.id]: e.target.value }))}
+                    min={field.min}
+                    max={field.max}
+                    step={field.step ?? 1}
+                  />
+                )}
+              </>
             )}
           </label>
         ))}
