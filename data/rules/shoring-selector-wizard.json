@@ -1,0 +1,43 @@
+{
+  "id": "shoring-selector-wizard",
+  "toolName": "Shoring Selector Wizard (Placeholder)",
+  "description": "Guide shore category selection from mission and damage indicators.",
+  "placeholder": true,
+  "placeholderLabel": "Placeholder rule. Link this module to actual uploaded manual citations before operational use.",
+  "calculator": "shoringSelector",
+  "inputs": [
+    { "id": "mission", "label": "Mission", "type": "select", "required": true, "options": [
+      { "value": "vertical", "label": "Vertical support" },
+      { "value": "lateral", "label": "Lateral support" }
+    ], "defaultValue": "vertical" },
+    { "id": "openingSizeFt", "label": "Opening Size (ft)", "type": "number", "required": true, "min": 1, "max": 30, "step": 0.5, "defaultValue": 6 },
+    { "id": "damageIndicators", "label": "Damage Indicators", "type": "select", "required": true, "options": [
+      { "value": "minor", "label": "Minor" },
+      { "value": "moderate", "label": "Moderate" },
+      { "value": "severe", "label": "Severe" }
+    ], "defaultValue": "moderate" },
+    { "id": "accessConstraints", "label": "Access Constraint", "type": "select", "required": true, "options": [
+      { "value": "open", "label": "Open Access" },
+      { "value": "restricted", "label": "Restricted" },
+      { "value": "confined", "label": "Confined" }
+    ], "defaultValue": "restricted" }
+  ],
+  "assumptions": [
+    "Mission objective and access route are confirmed by command.",
+    "Damage indicators are based on current reconnaissance."
+  ],
+  "warnings": [
+    "Shore category selection is not a substitute for engineering judgment.",
+    "Escalate on worsening movement or unknown load path."
+  ],
+  "stepTemplates": [
+    "Recommended shore category: {shoreCategory}.",
+    "Opening {openingSizeFt} ft with {accessConstraints} access constraint.",
+    "Damage level {damageIndicators} suggests {inspectionTempo} inspection tempo.",
+    "Build checklist: sole/base -> members -> bracing -> wedges -> reassess movement."
+  ],
+  "citationQueries": [
+    { "query": "shore type selection vertical lateral support", "preferredSource": "SOG" },
+    { "query": "shoring build sequence checklist", "preferredSource": "FOG" }
+  ]
+}

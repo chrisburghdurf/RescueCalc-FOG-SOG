@@ -1,0 +1,26 @@
+[
+  {
+    "fileName": "2015-US-Army-Corps-Shoring-Operation-Guide-SOG.pdf",
+    "path": "/Users/chrisburghdurf/Documents/New project/new-app/sample_docs/user_uploads/2015-US-Army-Corps-Shoring-Operation-Guide-SOG.pdf",
+    "suggestedSourceType": "SOG",
+    "primaryUse": ["shoring-selector-wizard", "strut-angle-load-helper", "cribbing-height-planner", "collapse-weight-calculator"]
+  },
+  {
+    "fileName": "CMC-Rope-Rescue-Field-Guide-4th-Edition.pdf",
+    "path": "/Users/chrisburghdurf/Documents/New project/new-app/sample_docs/user_uploads/CMC-Rope-Rescue-Field-Guide-4th-Edition.pdf",
+    "suggestedSourceType": "OTHER",
+    "primaryUse": ["rope-rescue-ma-calculator"]
+  },
+  {
+    "fileName": "MUSAR-SOG-2020.pdf",
+    "path": "/Users/chrisburghdurf/Documents/New project/new-app/sample_docs/user_uploads/MUSAR-SOG-2020.pdf",
+    "suggestedSourceType": "SOG",
+    "primaryUse": ["vehicle-stabilization-selector", "airbag-lift-planner", "shoring-selector-wizard"]
+  },
+  {
+    "fileName": "st-120108-final-shoring-guidebook.pdf",
+    "path": "/Users/chrisburghdurf/Documents/New project/new-app/sample_docs/user_uploads/st-120108-final-shoring-guidebook.pdf",
+    "suggestedSourceType": "OTHER",
+    "primaryUse": ["shoring-selector-wizard", "strut-angle-load-helper", "cribbing-height-planner"]
+  }
+]

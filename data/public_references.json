@@ -1,0 +1,37 @@
+[
+  {
+    "id": "unit-weight-reinforced-concrete",
+    "title": "Reinforced concrete unit weight",
+    "excerpt": "Typical reinforced concrete unit weight used for field estimates: approximately 150 pcf.",
+    "url": "https://www.engineeringtoolbox.com/concrete-density-d_1223.html",
+    "tags": ["unit weight", "concrete", "collapse"]
+  },
+  {
+    "id": "unit-weight-masonry",
+    "title": "Masonry unit weight",
+    "excerpt": "Typical masonry unit weight used for field estimates: approximately 125 pcf.",
+    "url": "https://www.engineeringtoolbox.com/wall-systems-material-weights-d_1615.html",
+    "tags": ["unit weight", "masonry", "collapse"]
+  },
+  {
+    "id": "unit-weight-wood",
+    "title": "Wood unit weight",
+    "excerpt": "Typical structural wood unit weight for rough field estimates: approximately 35 pcf.",
+    "url": "https://www.engineeringtoolbox.com/wood-density-d_40.html",
+    "tags": ["unit weight", "wood", "collapse"]
+  },
+  {
+    "id": "unit-weight-structural-steel",
+    "title": "Structural steel unit weight",
+    "excerpt": "Typical structural steel unit weight used for field estimates: approximately 490 pcf.",
+    "url": "https://www.engineeringtoolbox.com/metal-alloys-densities-d_50.html",
+    "tags": ["unit weight", "steel", "collapse"]
+  },
+  {
+    "id": "rope-ma-efficiency",
+    "title": "Mechanical advantage efficiency model",
+    "excerpt": "Actual mechanical advantage can be estimated as theoretical MA multiplied by per-pulley efficiency to the power of pulley count.",
+    "url": "https://en.wikipedia.org/wiki/Block_and_tackle",
+    "tags": ["rope", "mechanical advantage", "efficiency"]
+  }
+]

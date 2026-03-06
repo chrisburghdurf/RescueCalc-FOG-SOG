@@ -1,0 +1,105 @@
+# RescueCalc FOG/SOG
+
+Mobile-first offline web app for rescue teams to run field calculators and reference uploaded manuals with citations.
+
+## Safety
+
+Training aid only. Follow manufacturer instructions and agency SOPs. Stop if uncertain.
+
+## Core principles
+
+- No proprietary manual text is bundled in this app.
+- Operational references come from user-uploaded PDFs.
+- Module outputs are deterministic and citation-backed.
+- If support is weak, the app marks: `Insufficient reference support` and shows closest pages.
+
+## Stack
+
+- Next.js App Router + TypeScript + TailwindCSS
+- `pdfjs-dist` for PDF extraction
+- IndexedDB (`idb`) for docs/chunks/sessions/settings
+- Local TF-IDF retrieval with chunk -> page mapping
+- JSON-driven rules engine + Zod validation
+
+## Run
+
+```bash
+npm install
+npm run dev
+```
+
+## Upload and index manuals
+
+1. Open **Settings** tab.
+2. In **Upload FOG/SOG PDFs**, choose source type and upload a PDF.
+3. Wait for status `indexed`.
+4. Use **Search** or **Modules**.
+
+## Seed docs provided in this workspace
+
+The following PDFs are available in the app at `public/seed_docs` and can be indexed from **Settings -> Load Seed Docs**:
+
+- `2015-US-Army-Corps-Shoring-Operation-Guide-SOG.pdf`
+- `CMC-Rope-Rescue-Field-Guide-4th-Edition.pdf`
+- `MUSAR-SOG-2020.pdf`
+- `st-120108-final-shoring-guidebook.pdf`
+
+## App IA (mobile bottom tabs)
+
+- Home
+- Search
+- Modules
+- Session
+- Settings
+
+## Modules (7)
+
+1. Airbag Lift Planner
+2. Cribbing Height Planner
+3. Vehicle Stabilization Selector
+4. Strut Angle / Load Helper
+5. Shoring Selector Wizard
+6. Rope Rescue MA Calculator
+7. Collapse Weight Calculator
+
+All module rule files live in `/Users/chrisburghdurf/Documents/New project/new-app/data/rules`.
+
+## Rules authoring
+
+Each module rule JSON defines:
+
+- metadata (`id`, `toolName`, `description`)
+- input schema fields
+- assumptions
+- warnings
+- deterministic step templates
+- citation queries
+
+Execution logic is in:
+
+- `/Users/chrisburghdurf/Documents/New project/new-app/lib/rules/schema.ts`
+- `/Users/chrisburghdurf/Documents/New project/new-app/lib/rules/operations.ts`
+- `/Users/chrisburghdurf/Documents/New project/new-app/lib/rules/engine.ts`
+
+## Field Math library
+
+Pure utility functions:
+
+- `/Users/chrisburghdurf/Documents/New project/new-app/lib/fieldmath/index.ts`
+
+Unit tests:
+
+- `/Users/chrisburghdurf/Documents/New project/new-app/tests/fieldmath.test.ts`
+
+## Session export
+
+Session tab supports:
+
+- JSON export
+- Printable PDF summary export
+
+## Public reference dataset fallback
+
+Used only when uploaded-doc citations are missing for universal math contexts (rope efficiency and material unit weights):
+
+- `/Users/chrisburghdurf/Documents/New project/new-app/data/public_references.json`

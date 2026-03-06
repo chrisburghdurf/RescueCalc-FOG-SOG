@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #eef3f7;
+  --card: #ffffff;
+  --ink: #16202a;
+  --muted: #4f5f70;
+  --line: #c7d3df;
+  --accent: #0f4f82;
+  --warn: #8a3b16;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(155deg, #f4f7fa 0%, #dfe8f2 100%);
+  color: var(--ink);
+  min-height: 100%;
+}
+
+body {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .app-shell {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+.panel {
+  background: color-mix(in oklab, var(--card) 88%, #edf3f9 12%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.66rem 0.75rem;
+  background: white;
+}
+
+.field-input:focus {
+  outline: 2px solid color-mix(in oklab, var(--accent) 35%, white 65%);
+  border-color: var(--accent);
+}
+
+.safe-banner {
+  background: #fff6e7;
+  color: var(--warn);
+  border-bottom: 1px solid #e2ceb0;
+}

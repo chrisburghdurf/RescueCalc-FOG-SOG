@@ -1,0 +1,39 @@
+{
+  "id": "shore-selector",
+  "toolName": "Shore Selector (Placeholder)",
+  "description": "Suggest shore strategy from scenario conditions and produce build checklist.",
+  "placeholder": true,
+  "placeholderLabel": "Placeholder rule. Link to actual citations after uploading your manuals.",
+  "calculator": "shoreSelector",
+  "inputs": [
+    { "id": "collapseType", "label": "Collapse Condition", "type": "select", "required": true, "options": [
+      { "value": "wall", "label": "Wall instability" },
+      { "value": "trench", "label": "Trench sidewall" },
+      { "value": "floor", "label": "Compromised floor" },
+      { "value": "void", "label": "Void support" }
+    ], "defaultValue": "wall" },
+    { "id": "loadCondition", "label": "Load Severity", "type": "select", "required": true, "options": [
+      { "value": "light", "label": "Light" },
+      { "value": "moderate", "label": "Moderate" },
+      { "value": "heavy", "label": "Heavy" }
+    ], "defaultValue": "moderate" },
+    { "id": "clearanceFt", "label": "Working Clearance (ft)", "type": "number", "required": true, "min": 1, "max": 20, "step": 0.5, "defaultValue": 6 },
+    { "id": "wallHeightFt", "label": "Affected Height/Depth (ft)", "type": "number", "required": true, "min": 1, "max": 30, "step": 0.5, "defaultValue": 10 }
+  ],
+  "warnings": [
+    "Selection output is a planning aid only; verify design against current manual guidance.",
+    "Escalate to rescue specialist/engineer when loading uncertainty is high.",
+    "Confirm lumber/member dimensions and connection patterns before loading."
+  ],
+  "stepTemplates": [
+    "Scenario indicates {recommendedShore} as initial shore strategy.",
+    "Set operational zone and establish spotter before shore placement.",
+    "Target configuration class: {shoreClass} with working clearance {clearanceFt} ft.",
+    "Build sequence: sole plate -> uprights/raker -> bracing -> wedge set -> recheck movement.",
+    "If movement increases, stop operations and reassess shore type and load path."
+  ],
+  "citationQueries": [
+    { "query": "shore type selection by collapse condition", "preferredSource": "SOG" },
+    { "query": "shore build sequence and safety checks", "preferredSource": "FOG" }
+  ]
+}

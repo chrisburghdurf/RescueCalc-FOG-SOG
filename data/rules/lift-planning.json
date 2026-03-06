@@ -1,0 +1,33 @@
+{
+  "id": "lift-planning",
+  "toolName": "Lift Planning Worksheet (Placeholder)",
+  "description": "Estimate lift point loading, bag contact area and capture rhythm.",
+  "placeholder": true,
+  "placeholderLabel": "Placeholder rule. Link to actual citations after uploading your manuals.",
+  "calculator": "liftPlanning",
+  "inputs": [
+    { "id": "loadEstimateLb", "label": "Estimated Load (lb)", "type": "number", "required": true, "min": 1, "step": 1, "defaultValue": 6000 },
+    { "id": "liftPoints", "label": "Number of Lift Points", "type": "number", "required": true, "min": 1, "max": 12, "step": 1, "defaultValue": 2 },
+    { "id": "targetLiftIn", "label": "Target Lift Height (in)", "type": "number", "required": true, "min": 1, "max": 48, "step": 0.5, "defaultValue": 12 },
+    { "id": "bagLengthIn", "label": "Selected Bag Length (in)", "type": "number", "required": true, "min": 6, "step": 0.5, "defaultValue": 20 },
+    { "id": "bagWidthIn", "label": "Selected Bag Width (in)", "type": "number", "required": true, "min": 6, "step": 0.5, "defaultValue": 20 },
+    { "id": "systemPressurePsi", "label": "System Pressure (psi)", "type": "number", "required": true, "min": 50, "step": 10, "defaultValue": 118 }
+  ],
+  "warnings": [
+    "Confirm load stability before each lift increment.",
+    "Capture load at regular intervals with cribbing.",
+    "Do not exceed equipment ratings or manufacturer limits."
+  ],
+  "stepTemplates": [
+    "Verify access, hazard control, and communications before lift.",
+    "Set {liftPoints} lift point(s) and distribute load across contact surfaces.",
+    "Target capture interval: every {captureIntervalIn} in with cribbing.",
+    "Estimated per-point load: {perPointLoadLb} lb.",
+    "Estimated bag effective capacity: {bagCapacityLb} lb.",
+    "Lift in short increments and re-capture after each cycle."
+  ],
+  "citationQueries": [
+    { "query": "cribbing capture after lift increment", "preferredSource": "FOG" },
+    { "query": "lifting bag capacity and surface contact", "preferredSource": "FOG" }
+  ]
+}
