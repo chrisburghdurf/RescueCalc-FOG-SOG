@@ -15,7 +15,7 @@ function formatLabel(inputId: string) {
   return inputId.replaceAll("_", " ");
 }
 
-export function RuleRunner({ ruleId }: { ruleId: string }) {
+export function RuleRunner({ ruleId, compact = false }: { ruleId: string; compact?: boolean }) {
   const rule = useMemo(() => getAllRules().find((entry) => entry.id === ruleId), [ruleId]);
   const defaultValues = useMemo(() => {
     if (!rule) {
@@ -94,8 +94,8 @@ export function RuleRunner({ ruleId }: { ruleId: string }) {
 
   return (
     <section className="panel p-4">
-      <h2 className="text-lg font-semibold text-slate-900">{rule.toolName}</h2>
-      <p className="mt-1 text-sm text-slate-600">{rule.description}</p>
+      {!compact ? <h2 className="text-lg font-semibold text-slate-900">{rule.toolName}</h2> : null}
+      {!compact ? <p className="mt-1 text-sm text-slate-600">{rule.description}</p> : null}
 
       {rule.placeholder ? (
         <p className="mt-2 rounded-lg bg-amber-50 p-2 text-xs font-semibold text-amber-900">
